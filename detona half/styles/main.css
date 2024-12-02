@@ -1,0 +1,126 @@
+/* Reset de estilo, caso haja algum estilo de navegador padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container principal, com o fundo e o layout */
+.container {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos de cima para baixo */
+    height: 100vh;
+    background-image: url(../images/8774766-belo-bloco-tijolo-parede-padrao-textura-fundo-vetor.jpg); 
+    background-size: cover; /* Ajusta a imagem de fundo para cobrir a tela */
+    background-position: center;
+}
+
+/* Estilos para o menu superior com o tempo, pontuação e vidas */
+.menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    border-bottom: 1px solid gold;
+}
+
+.menu-time, .menu-score, .menu-lives {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-time h2, .menu-score h2, .menu-lives h2 {
+    margin: 5px;
+}
+
+.menu-time h2 {
+    color: red;
+}
+
+.menu-lives img {
+    height: 60px;
+    width: auto;
+}
+
+/* Painel de quadrados onde o jogo ocorre */
+.panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Estilo dos quadrados individuais */
+.square {
+    width: 10rem;
+    height: 10rem;
+    background-color: aquamarine;
+    border: 1px solid #000;
+    position: relative; /* Necessário para colocar a imagem do inimigo */
+    cursor: pointer; /* Mostra que é clicável */
+    transition: background-color 0.3s ease-in-out; /* Suaviza a cor ao passar o mouse */
+}
+
+/* Efeito de hover nos quadrados */
+.square:hover {
+    background-color: lightblue;
+}
+
+/* Estilo quando o inimigo aparece no quadrado */
+.enemy {
+    background-image: url(../images/ralph.png); 
+    background-size: cover; /* A imagem cobrirá o quadrado sem distorcer */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-position: center; /* Centraliza a imagem no quadrado */
+}
+
+/* Animar os quadrados quando o inimigo aparece */
+.enemy:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Efeito visual no quadrado com o inimigo */
+}
+
+/* Estilos para a contagem do tempo e a pontuação */
+#timeleft, #Score {
+    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive; /* Fonte de estilo retrô */
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+}
+
+/* Estilo responsivo: ajusta o layout para telas menores */
+@media screen and (max-width: 768px) {
+    .panel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .square {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    .menu {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .menu-time h2, .menu-score h2 {
+        font-size: 1.2rem;
+    }
+
+    #timeleft, #Score {
+        font-size: 1.5rem;
+    }
+}
+
